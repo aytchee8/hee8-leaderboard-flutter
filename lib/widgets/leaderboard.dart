@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:hee8_lb/widgets/user_leaderboard_card/user_leaderboard_card.dart';
+
 class Leaderboard extends StatelessWidget {
   const Leaderboard({Key? key}) : super(key: key);
 
@@ -10,7 +12,7 @@ class Leaderboard extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.only(top: 20, bottom: 20),
         child: Container(
-          alignment: Alignment.centerRight,
+          alignment: Alignment.topRight,
           decoration: BoxDecoration(
             color: const Color(0xff21262B),
             borderRadius: BorderRadius.circular(10),
@@ -22,6 +24,7 @@ class Leaderboard extends StatelessWidget {
               ),
             ],
           ),
+          child: const UserLeaderboardCard()
         )
       )
     );

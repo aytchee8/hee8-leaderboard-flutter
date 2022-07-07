@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+
+import 'package:hee8_lb/utils/constants.dart';
 import 'package:hee8_lb/widgets/role_banner.dart';
 
 class RoleRewards extends StatelessWidget {
@@ -31,7 +32,7 @@ class RoleRewards extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text("ROLE REWARDS", style: GoogleFonts.inter(fontWeight: FontWeight.bold, letterSpacing: 2, fontSize: 15)),
+              const Text("ROLE REWARDS", style: TextStyle(fontFamily: kInter, fontWeight: FontWeight.bold, letterSpacing: 2, fontSize: 15)),
               Tooltip(
                   preferBelow: false,
                   verticalOffset: 30,

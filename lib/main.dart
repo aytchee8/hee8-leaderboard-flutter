@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import 'package:hee8_lb/pages/leaderboard_page.dart';
+import 'package:hee8_lb/utils/constants.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+
   runApp(const App());
 }
 
@@ -17,9 +19,9 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         brightness: Brightness.dark,
-        appBarTheme: AppBarTheme(
-          titleTextStyle: GoogleFonts.hindSiliguri(fontWeight: FontWeight.bold, color: Colors.white, fontSize: 20)
-        )
+        appBarTheme: const AppBarTheme(
+          titleTextStyle: TextStyle(fontFamily: kHindSiliguri, fontWeight: FontWeight.bold, color: Colors.white, fontSize: 20)
+        ),
       ),
       home: const LeaderboardPage(),
     );

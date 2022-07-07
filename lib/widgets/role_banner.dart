@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+
+import 'package:hee8_lb/utils/constants.dart';
 
 class RoleBanner extends StatelessWidget {
   final int level;
@@ -22,14 +23,14 @@ class RoleBanner extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(name, style: const TextStyle(fontWeight: FontWeight.bold, letterSpacing: 1.5, /*fontFamily: "Roboto"*/)),
+            Text(name, style: const TextStyle(fontWeight: FontWeight.bold, letterSpacing: 1.5)),
             Container(
               padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
               decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(99)
               ),
-              child: Text("LV $level", style: GoogleFonts.inter(color: Colors.black),),
+              child: Text("LV $level", style: const TextStyle(fontFamily: kInter, color: Colors.black)),
             )
           ],
         )
