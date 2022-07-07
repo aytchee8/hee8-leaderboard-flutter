@@ -11,11 +11,11 @@ class RoleRewards extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 300,
-      padding: EdgeInsets.all(16),
+      padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         color: _bgColor,
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
             color: Colors.black,
             offset: Offset(1.0, 1.0),
@@ -35,7 +35,7 @@ class RoleRewards extends StatelessWidget {
               Tooltip(
                   preferBelow: false,
                   verticalOffset: 30,
-                  textStyle: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.normal),
+                  textStyle: const TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.normal),
                   decoration: BoxDecoration(
                       color: Colors.grey[900],
                       borderRadius: BorderRadius.circular(5)
