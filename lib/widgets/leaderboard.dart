@@ -11,9 +11,10 @@ class Leaderboard extends StatelessWidget {
         padding: const EdgeInsets.only(top: 20, bottom: 20),
         child: Container(
           alignment: Alignment.centerRight,
-          decoration: const BoxDecoration(
-            color: Color(0xff21262B),
-            boxShadow: [
+          decoration: BoxDecoration(
+            color: const Color(0xff21262B),
+            borderRadius: BorderRadius.circular(10),
+            boxShadow: const [
               BoxShadow(
                 color: Colors.black,
                 offset: Offset(1.0, 1.0),
