@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'package:hee8_lb/pages/leaderboard_page.dart';
 
@@ -15,7 +16,10 @@ class App extends StatelessWidget {
       title: "HEE8 Leaderboard",
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        brightness: Brightness.dark
+        brightness: Brightness.dark,
+        appBarTheme: AppBarTheme(
+          titleTextStyle: GoogleFonts.hindSiliguri(fontWeight: FontWeight.bold, color: Colors.white, fontSize: 20)
+        )
       ),
       home: const LeaderboardPage(),
     );

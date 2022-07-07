@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'package:hee8_lb/widgets/leaderboard.dart';
+import 'package:hee8_lb/widgets/role_rewards.dart';
+
 class LeaderboardPage extends StatelessWidget {
   const LeaderboardPage({Key? key}) : super(key: key);
 
@@ -29,32 +32,10 @@ class LeaderboardPage extends StatelessWidget {
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            Container(
-              alignment: Alignment.centerLeft,
-              decoration: const BoxDecoration(
-                color: Color(0xff21262B),
-              ),
-              height: 400,
-              width: 300,
-            ),
-            Container(
-              alignment: Alignment.centerRight,
-              decoration: const BoxDecoration(
-                color: Color(0xff21262B),
-              ),
-              height: 700,
-              width: 900,
-              child: Padding(
-                padding: const EdgeInsets.all(15),
-                child: Column(
-                  children: [
-                    Text("Role Rewards")
-                  ],
-                ),
-              )
-            )
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: const [
+            Leaderboard(),
+            RoleRewards(),
           ],
         ),
       ),
