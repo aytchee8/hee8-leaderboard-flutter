@@ -22,7 +22,7 @@ class UserLeaderboardCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                const UserLeaderboardCardName("Darko", "#5590"),
+                const UserLeaderboardCardName("Darko", 5590),
                 Row(
                   children: const [
                     UserLeaderboardCardColumn(topText: "Level", bottomText: "87"),
