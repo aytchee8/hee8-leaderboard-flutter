@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:hee8_lb/pages/leaderboard_page.dart';
 import 'package:hee8_lb/utils/constants.dart';
 
-void main() {
-  WidgetsFlutterBinding.ensureInitialized();
+import 'injection_container.dart' as ic;
 
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await ic.init();
   runApp(const App());
 }
 
