@@ -20,18 +20,25 @@ class UserLeaderboardCardAvatar extends StatelessWidget {
               return child;
             }
 
-            return Container(
-              height: 60,
-              width: 60,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(99),
-                color: const Color(0xffC4C4C4),
-              ),
-              alignment: Alignment.center,
-            );
+            return defaultAvatar();
+          },
+          errorBuilder: (context, object, stackTrace) {
+            return defaultAvatar();
           },
         )
       )
+    );
+  }
+
+  Widget defaultAvatar() {
+    return Container(
+      height: 60,
+      width: 60,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(99),
+        color: const Color(0xffC4C4C4),
+      ),
+      alignment: Alignment.center,
     );
   }
 }

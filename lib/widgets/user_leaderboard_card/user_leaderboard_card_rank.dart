@@ -14,10 +14,22 @@ class UserLeaderboardCardRank extends StatelessWidget {
       width: 60,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        color: const Color(0xffD08C2E),
+        color: buildColor(),
       ),
       alignment: Alignment.center,
       child: Text(rank.toString(), style: const TextStyle(fontFamily: kIBMPlexSans, fontSize: 19, fontWeight: FontWeight.bold)),
     );
+  }
+
+  Color buildColor() {
+    if (rank == 1) {
+      return const Color(0xffD08C2E);
+    } else if (rank == 2) {
+      return const Color(0xff868686);
+    } else if (rank == 3) {
+      return const Color(0xff9d6132);
+    } else {
+      return const Color.fromARGB(255, 40, 45, 49);
+    }
   }
 }

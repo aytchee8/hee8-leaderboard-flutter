@@ -2,7 +2,7 @@ class User {
   String id;
   String avatarURL;
   String username;
-  int discriminator;
+  String discriminator;
   int level;
   int messageCount;
   int xp;

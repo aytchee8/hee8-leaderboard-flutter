@@ -13,6 +13,13 @@ class LeaderboardLoaded extends LeaderboardState {
   LeaderboardLoaded(this.users);
 }
 
+class LeaderboardMoreLoaded extends LeaderboardState {
+  final List<User> users;
+
+  LeaderboardMoreLoaded(this.users);
+}
+
+
 class LeaderboardError extends LeaderboardState {
   final String message;
 

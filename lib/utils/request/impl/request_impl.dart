@@ -24,17 +24,17 @@ class RequestImpl implements Request {
   }
 
   @override
-  Future<Either<List<User>, RequestError>> getMany() async {
-    var request = await makeRequest(Uri.parse("$kBaseUrl/users/"));
+  Future<Either<List<User>, RequestError>> getMany(int? page) async {
+    var request = await makeRequest(Uri.parse("$kBaseUrl/users?page=$page"));
     
     if (request.statusCode != 200) {
       return Right(RequestError("There was an error while getting users!"));
     }
 
-    Map<String, dynamic> data = jsonDecode(request.body);
+    List data = jsonDecode(request.body);
     List<User> users = [];
     
-    for (Map<String, dynamic> item in data.values) {
+    for (Map<String, dynamic> item in data) {
       users.add(User.fromJson(item));
     }
 
@@ -43,7 +43,7 @@ class RequestImpl implements Request {
 
   @override 
   Future<http.Response> makeRequest(Uri url) async {
-    var request = await http.get(url);
+    var request = await http.get(url, headers: {"Access-Control-Allow-Origin": "*"});
     return request;
   }
 } 

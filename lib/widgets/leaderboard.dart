@@ -8,8 +8,15 @@ import 'package:hee8_lb/injection_container.dart';
 
 import 'package:hee8_lb/widgets/user_leaderboard_card/user_leaderboard_card.dart';
 
+import '../models/user.dart';
+
+// ignore_for_file: must_be_immutable
 class Leaderboard extends StatelessWidget {
-  const Leaderboard({Key? key}) : super(key: key);
+  Leaderboard({Key? key}) : super(key: key);
+
+  late List<User> users;
+  int page = 0;
+  final LeaderboardBloc lbBloc = sl<LeaderboardBloc>();
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +45,7 @@ class Leaderboard extends StatelessWidget {
 
   BlocProvider<LeaderboardBloc> _buildLeaderboard() {
     return BlocProvider(
-      create: (_) => sl<LeaderboardBloc>()..add(GetLeaderboardUsers()),
+      create: (_) => lbBloc..add(GetLeaderboardUsers()),
       child: BlocBuilder<LeaderboardBloc, LeaderboardState>(
         builder: (context, state) {
           if (state is LeaderboardLoading) {
@@ -46,16 +53,36 @@ class Leaderboard extends StatelessWidget {
           } else if (state is LeaderboardError) {
             return Center(child: Text(state.message));
           } else if (state is LeaderboardLoaded) {
-            return ListView.builder(
-              shrinkWrap: true,
-              itemCount: state.users.length,
-              itemBuilder: (context, index) {
-                return UserLeaderboardCard(state.users.elementAt(index));
-              },
-            );
+            users = state.users;
+
+            return loadedListener();
+          } else if (state is LeaderboardMoreLoaded) {
+            users.addAll(state.users);
+            
+            return loadedListener();
           } else {
             return const Center(child: CupertinoActivityIndicator());
           }
+        },
+      ),
+    );
+  }
+
+  Widget loadedListener() {
+    return NotificationListener<ScrollNotification>(
+      onNotification: (notification) {
+        if (notification is ScrollEndNotification) {
+          page = page + 1;
+          lbBloc.add(GetMoreLeaderboardUsers(page));
+        }
+
+        return false;
+      },
+      child: ListView.builder(
+        shrinkWrap: true,
+        itemCount: users.length,
+        itemBuilder: (context, index) {
+          return UserLeaderboardCard(users.elementAt(index), index + 1);
         },
       ),
     );

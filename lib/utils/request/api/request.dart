@@ -10,7 +10,7 @@ abstract class Request {
   Future<Either<User, RequestError>> getSingle(String id);
 
   /// Gets multiple users. (100)
-  Future<Either<List<User>, RequestError>> getMany();
+  Future<Either<List<User>, RequestError>> getMany(int? page);
 
   /// Makes request to the desired URL.
   Future<http.Response> makeRequest(Uri url);

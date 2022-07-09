@@ -33,9 +33,9 @@ class LeaderboardPage extends StatelessWidget {
         width: MediaQuery.of(context).size.width,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: const [
+          children: [
             Leaderboard(),
-            RoleRewards(),
+            const RoleRewards(),
           ],
         ),
       ),

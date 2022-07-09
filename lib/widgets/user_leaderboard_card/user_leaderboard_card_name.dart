@@ -4,7 +4,7 @@ import 'package:hee8_lb/utils/constants.dart';
 
 class UserLeaderboardCardName extends StatelessWidget {
   final String name;
-  final int discriminator;
+  final String discriminator;
 
   const UserLeaderboardCardName(this.name, this.discriminator, {Key? key}) : super(key: key);
 

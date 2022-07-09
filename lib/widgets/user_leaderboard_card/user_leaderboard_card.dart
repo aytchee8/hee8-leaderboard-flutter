@@ -9,8 +9,9 @@ import 'package:hee8_lb/widgets/user_leaderboard_card/user_leaderboard_card_rank
 
 class UserLeaderboardCard extends StatelessWidget {
   final User user;
+  final int rank;
 
-  const UserLeaderboardCard(this.user, {Key? key}) : super(key: key);
+  const UserLeaderboardCard(this.user, this.rank, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,7 @@ class UserLeaderboardCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          const UserLeaderboardCardRank(1),
+          UserLeaderboardCardRank(rank),
           UserLeaderboardCardAvatar(user.avatarURL),
           Column(
               crossAxisAlignment: CrossAxisAlignment.start,
