@@ -32,6 +32,20 @@
   <title>HEE8 Leaderboard</title>
   <link rel="manifest" href="manifest.json">
 
+  <style>
+    #loading {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      min-height: 100vh;
+    }
+
+    body {
+      background-color: rgb(35, 35, 35);
+    }
+  </style>
+
   <script>
     // The value below is injected by flutter build, do not touch.
     var serviceWorkerVersion = null;
@@ -40,7 +54,22 @@
   <script src="flutter.js" defer></script>
 </head>
 <body>
+  <div id="loading">
+    <img id="imgRandom" src="" alt="" width="10%" height="10%">
+  </div>
+
   <script>
+    const gifs = ["h_pride.gif", "h.gif"]
+    const randomGif = gifs[Math.floor(Math.random() * gifs.length)];
+
+    document.getElementById("imgRandom").src = randomGif
+  </script>
+
+  <script>
+    window.addEventListener("flutter-first-frame",function() { 
+      const element = document.getElementById('loading');
+      element.remove(); 
+    });
     window.addEventListener('load', function(ev) {
       // Download main.dart.js
       _flutter.loader.loadEntrypoint({

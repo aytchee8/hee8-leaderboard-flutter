@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
 import 'package:hee8_lb/utils/constants.dart';
@@ -17,7 +18,11 @@ class UserLeaderboardCardRank extends StatelessWidget {
         color: buildColor(),
       ),
       alignment: Alignment.center,
-      child: Text(rank.toString(), style: const TextStyle(fontFamily: kIBMPlexSans, fontSize: 19, fontWeight: FontWeight.bold)),
+      child: AutoSizeText(
+        rank.toString(),
+        style: const TextStyle(fontFamily: kIBMPlexSans, fontSize: 19, fontWeight: FontWeight.bold),
+        maxFontSize: 19,
+      ),
     );
   }
 
