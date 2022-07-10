@@ -6,6 +6,7 @@ class User {
   int level;
   int messageCount;
   int xp;
+  int? rank;
 
   User({
     required this.id,
@@ -14,7 +15,8 @@ class User {
     required this.discriminator,
     required this.level,
     required this.messageCount,
-    required this.xp
+    required this.xp,
+    this.rank
   });
 
   factory User.fromJson(Map<String, dynamic> json) {
@@ -25,7 +27,8 @@ class User {
       discriminator: json["discriminator"],
       level: json["level"],
       messageCount: json["messageCount"],
-      xp: json["xp"]
+      xp: json["xp"],
+      rank: json.containsKey("rank") ? json["rank"] : null
     ); 
   }
 
@@ -39,6 +42,7 @@ class User {
     data["level"] = level;
     data["messageCount"] = messageCount;
     data["xp"] = xp;
+    data["rank"] = rank;
 
     return data;
   }
