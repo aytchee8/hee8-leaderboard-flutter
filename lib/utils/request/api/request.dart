@@ -1,9 +1,8 @@
-import 'package:dartz/dartz.dart';
 import 'package:hee8_lb/utils/error/request_error.dart';
-
-import '../../../models/user.dart';
+import 'package:hee8_lb/models/user.dart';
 
 import 'package:http/http.dart' as http;
+import 'package:dartz/dartz.dart';
 
 abstract class Request {
   /// Gets single user by ID.

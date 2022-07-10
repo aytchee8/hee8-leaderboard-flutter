@@ -1,10 +1,10 @@
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
-import 'package:hee8_lb/utils/error/request_error.dart';
 import 'package:meta/meta.dart';
 
 import 'package:hee8_lb/models/user.dart';
 import 'package:hee8_lb/utils/request/api/request.dart';
+import 'package:hee8_lb/utils/error/request_error.dart';
 
 part 'leaderboard_event.dart';
 part 'leaderboard_state.dart';

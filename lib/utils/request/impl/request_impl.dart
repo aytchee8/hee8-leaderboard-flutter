@@ -1,13 +1,12 @@
 import 'dart:convert';
 
-import 'package:dartz/dartz.dart';
 import 'package:hee8_lb/models/user.dart';
 import 'package:hee8_lb/utils/constants.dart';
 import 'package:hee8_lb/utils/request/api/request.dart';
+import 'package:hee8_lb/utils/error/request_error.dart';
 
+import 'package:dartz/dartz.dart';
 import 'package:http/http.dart' as http;
-
-import '../../error/request_error.dart';
 
 class RequestImpl implements Request {
   @override
