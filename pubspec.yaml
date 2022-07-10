@@ -23,6 +23,7 @@ dependencies:
   auto_size_text: ^3.0.0
   bloc: ^8.0.3
   meta: ^1.7.0
+  flutter_web_auth: ^0.4.1
 
 dev_dependencies:
   flutter_test:
