@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
 import 'package:hee8_lb/utils/constants.dart';
@@ -10,9 +11,8 @@ class UserLeaderboardCardName extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return RichText(
-      text: TextSpan(
-        style: const TextStyle(color: Colors.white, fontFamily: kIBMPlexSans, fontSize: 19),
+    return AutoSizeText.rich(
+      TextSpan(
         children: [
           TextSpan(
             text: name,
@@ -22,6 +22,9 @@ class UserLeaderboardCardName extends StatelessWidget {
           )
         ]
       ),
+      style: const TextStyle(color: Colors.white, fontFamily: kIBMPlexSans, fontSize: 19),
+      maxLines: 1,
+      minFontSize: 5,
     );
   }
 }

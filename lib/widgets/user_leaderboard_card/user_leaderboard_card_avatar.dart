@@ -2,19 +2,22 @@ import 'package:flutter/material.dart';
 
 class UserLeaderboardCardAvatar extends StatelessWidget {
   final String avatarUrl;
+  final double? width;
+  final double? height;
+  final EdgeInsetsGeometry? padding;
 
-  const UserLeaderboardCardAvatar(this.avatarUrl, {Key? key}) : super(key: key);
+  const UserLeaderboardCardAvatar(this.avatarUrl, {Key? key, this.width, this.height, this.padding}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 20, right: 20),
+      padding: padding ?? const EdgeInsets.only(left: 20, right: 20),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(99),
         child: Image.network(
           avatarUrl,
-          height: 60,
-          width: 60,
+          height: height ?? 60,
+          width: width ?? 60,
           loadingBuilder: (context, child, loadingProgress) {
             if (loadingProgress == null) {
               return child;

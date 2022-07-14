@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:hee8_lb/utils/constants.dart';
 import 'package:hee8_lb/widgets/role_banner.dart';
+import 'package:hee8_lb/widgets/user_card/user_card.dart';
 
 class RoleRewards extends StatelessWidget {
   const RoleRewards({Key? key}) : super(key: key);
@@ -72,6 +73,8 @@ class RoleRewards extends StatelessWidget {
             name: "H Leqend",
             color: Color(0xFFfc09f5),
           ),
+          const Divider(),
+          UserCard()
         ],
       ),
     );

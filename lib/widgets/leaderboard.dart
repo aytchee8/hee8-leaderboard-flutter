@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hee8_lb/bloc/leaderboard/leaderboard_bloc.dart';
 
-import 'package:hee8_lb/bloc/leaderboard_bloc.dart';
 import 'package:hee8_lb/injection_container.dart';
 
 import 'package:hee8_lb/widgets/user_leaderboard_card/user_leaderboard_card.dart';
@@ -16,7 +16,10 @@ class Leaderboard extends StatelessWidget {
 
   late List<User> users;
   int page = 0;
+  bool reachedEnd = false;
+
   final LeaderboardBloc lbBloc = sl<LeaderboardBloc>();
+  final ScrollController _controller = ScrollController();
 
   @override
   Widget build(BuildContext context) {
@@ -55,11 +58,15 @@ class Leaderboard extends StatelessWidget {
           } else if (state is LeaderboardLoaded) {
             users = state.users;
 
-            return loadedListener();
+            return loadedListView();
           } else if (state is LeaderboardMoreLoaded) {
             users.addAll(state.users);
+
+            if (state.users.length < 100) {
+              reachedEnd = true;
+            }
             
-            return loadedListener();
+            return loadedListView();
           } else {
             return const Center(child: CupertinoActivityIndicator());
           }
@@ -68,23 +75,25 @@ class Leaderboard extends StatelessWidget {
     );
   }
 
-  Widget loadedListener() {
-    return NotificationListener<ScrollNotification>(
-      onNotification: (notification) {
-        if (notification is ScrollEndNotification) {
+  Widget loadedListView() {
+    _controller.addListener(() {
+      if (_controller.position.atEdge) {
+        bool isTop = _controller.position.pixels == 0;
+
+        if (!isTop && !reachedEnd) {
           page = page + 1;
           lbBloc.add(GetMoreLeaderboardUsers(page));
         }
+      }
+    });
 
-        return false;
+    return ListView.builder(
+      controller: _controller,
+      shrinkWrap: true,
+      itemCount: users.length,
+      itemBuilder: (context, index) {
+        return UserLeaderboardCard(users.elementAt(index), index + 1);
       },
-      child: ListView.builder(
-        shrinkWrap: true,
-        itemCount: users.length,
-        itemBuilder: (context, index) {
-          return UserLeaderboardCard(users.elementAt(index), index + 1);
-        },
-      ),
     );
   }
 }
