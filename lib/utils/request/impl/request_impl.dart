@@ -13,36 +13,51 @@ class RequestImpl implements Request {
   Future<Either<User, RequestError>> getSingle(String id) async {
     var request = await makeRequest(Uri.parse("$kBaseUrl/users/$id"));
 
-    if (request.statusCode != 200) {
-      return Right(RequestError("There was an error while getting the user!"));
-    }
-
-    User user = User.fromJson(jsonDecode(request.body));
-
-    return Left(user);
+    return request.fold(
+      (response) => Left(_getSingle(response)),
+      (r) => Right(RequestError("There was an error while getting your user."))
+    );
   }
 
   @override
   Future<Either<List<User>, RequestError>> getMany(int? page) async {
     var request = await makeRequest(Uri.parse("$kBaseUrl/users?page=$page"));
-    
-    if (request.statusCode != 200) {
-      return Right(RequestError("There was an error while getting users!"));
-    }
 
-    List data = jsonDecode(request.body);
+    return request.fold(
+      (response) => Left(_getMany(response)),
+      (error) => Right(RequestError("There was an error while getting users!"))
+    );
+  }
+
+  @override 
+  Future<Either<http.Response, RequestError>> makeRequest(Uri url) async {
+    try {
+      var request = await http.get(url, headers: {"Access-Control-Allow-Origin": "*"});
+
+      if (request.statusCode != 200) {
+        return Right(RequestError("There was an error with your request!"));
+      }
+
+      return Left(request);
+    } catch (e) {
+      return Right(RequestError("There was an error with your request!"));
+    }
+  }
+
+  List<User> _getMany(http.Response response) {
+    List data = jsonDecode(response.body);
     List<User> users = [];
     
     for (Map<String, dynamic> item in data) {
       users.add(User.fromJson(item));
     }
 
-    return Left(users);
+    return users;
   }
 
-  @override 
-  Future<http.Response> makeRequest(Uri url) async {
-    var request = await http.get(url, headers: {"Access-Control-Allow-Origin": "*"});
-    return request;
+  User _getSingle(http.Response response) {
+    User user = User.fromJson(jsonDecode(response.body));
+
+    return user;
   }
 } 

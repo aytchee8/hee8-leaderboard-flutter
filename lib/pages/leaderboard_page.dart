@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hee8_lb/utils/utils.dart';
 
 import 'package:hee8_lb/widgets/leaderboard.dart';
 import 'package:hee8_lb/widgets/role_rewards.dart';
@@ -31,14 +32,34 @@ class LeaderboardPage extends StatelessWidget {
         ),
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Leaderboard(),
-            const RoleRewards(),
-          ],
-        ),
+        child: Utils.isMobile(context)
+          ? _buildColumn()
+          : _buildRow()
       ),
+    );
+  }
+
+  Widget _buildRow() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        Flexible(flex: 3, child: Leaderboard()),
+        const RoleRewards(),
+      ],
+    );
+  }
+
+  Widget _buildColumn() {
+    final ScrollController controller = ScrollController();
+    
+    return ListView(
+      shrinkWrap: true,
+      controller: controller,
+      physics: const BouncingScrollPhysics(),
+      children: [
+        const RoleRewards(),
+        Leaderboard(scrollController: controller),
+      ],
     );
   }
 }

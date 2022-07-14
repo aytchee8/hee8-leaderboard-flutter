@@ -1,24 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html prefix="og: http://ogp.me/ns#">
 <head>
-  <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
-
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
-
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
-
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
-  -->
   <base href="$FLUTTER_BASE_HREF">
 
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
   <meta name="description" content="HEE8 Leaderboard.">
+  <meta name="theme-color" content="#c20000">
+
+  <meta property="og:type" content="website"/>
+  <meta property="og:image" itemprop="image" content="h.gif"/>
+  <meta property="og:url" content="https://hee8bot.xyz"/>
+  <meta property="og:description" content="The leaderboard for HEE8 Levelinq in the H server.">
+  <meta property="og:title" content="HEE8 Leaderboard"/>
 
   <!-- iOS meta tags & icons -->
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -63,10 +57,14 @@
   </div>
 
   <script>
-    const gifs = ["h_pride.gif", "h.gif"]
-    const randomGif = gifs[Math.floor(Math.random() * gifs.length)];
+    var date = new Date();
+    var imgRandom = document.getElementById("imgRandom")
 
-    document.getElementById("imgRandom").src = randomGif
+    if (date.getMonth() + 1 === 6) {
+      imgRandom.src = "h_pride.gif"
+    } else {
+      imgRandom.src = "h.gif"
+    }
   </script>
 
   <script>

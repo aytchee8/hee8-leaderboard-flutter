@@ -16,8 +16,10 @@ class UserCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (prefs.getString("userId") != null) {
-      userBloc.add(GetUserEvent(prefs.getString("userId")));
+    String? userId = prefs.getString("userId");
+
+    if (userId != null) {
+      userBloc.add(GetUserEvent(userId));
     }
 
     return BlocProvider(
@@ -28,7 +30,13 @@ class UserCard extends StatelessWidget {
             return const Center(child: CupertinoActivityIndicator());
           } else if (state is UserLoaded) {
             return UserRankCard(state.user, userBloc);
-          } else if (state is UserError || state is UserLoggedOut) {
+          } else if (state is UserError) {
+            if (userId != null) {
+              return Center(child: Text(state.message));
+            } else {
+              return _loginButton();
+            }
+          } else if (state is UserLoggedOut) {
             return _loginButton();
           } else {
             return _loginButton();
@@ -42,7 +50,7 @@ class UserCard extends StatelessWidget {
     return TextButton(
       style: ButtonStyle(
         backgroundColor: MaterialStateProperty.all(const Color.fromARGB(255, 49, 54, 61)),
-        foregroundColor: MaterialStateProperty.all(Colors.white)
+        foregroundColor: MaterialStateProperty.all(Colors.white),
       ),
       child: const Text("Log in with Discord"),
       onPressed: () async {
