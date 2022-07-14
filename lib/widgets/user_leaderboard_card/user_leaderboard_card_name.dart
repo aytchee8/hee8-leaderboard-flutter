@@ -25,6 +25,7 @@ class UserLeaderboardCardName extends StatelessWidget {
       style: const TextStyle(color: Colors.white, fontFamily: kIBMPlexSans, fontSize: 19),
       maxLines: 1,
       minFontSize: 5,
+      overflow: TextOverflow.ellipsis,
     );
   }
 }
