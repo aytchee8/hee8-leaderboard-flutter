@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
 import 'package:hee8_lb/utils/constants.dart';
@@ -22,19 +23,23 @@ class UserLeaderboardCardColumn extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Text(
+          AutoSizeText(
             topText,
             style: const TextStyle(
               fontFamily: kIBMPlexSans,
               color: Color(0xff838383)
-            )
+            ),
+            maxLines: 2,
+            minFontSize: 5,
           ),
-          Text(
+          AutoSizeText(
             bottomText,
             style: const TextStyle(
               fontFamily: kIBMPlexSans,
               color: Colors.white
-            )
+            ),
+            maxLines: 2,
+            minFontSize: 5,
           ),
         ],
       ),

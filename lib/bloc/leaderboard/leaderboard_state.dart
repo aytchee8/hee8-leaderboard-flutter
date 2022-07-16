@@ -19,7 +19,6 @@ class LeaderboardMoreLoaded extends LeaderboardState {
   LeaderboardMoreLoaded(this.users);
 }
 
-
 class LeaderboardError extends LeaderboardState {
   final String message;
 

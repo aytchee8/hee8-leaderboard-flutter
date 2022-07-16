@@ -12,21 +12,35 @@ import 'package:hee8_lb/widgets/user_leaderboard_card/user_leaderboard_card.dart
 import '../models/user.dart';
 
 // ignore_for_file: must_be_immutable
-class Leaderboard extends StatelessWidget {
+class Leaderboard extends StatefulWidget {
   final ScrollController? scrollController;
 
-  Leaderboard({Key? key, this.scrollController}) : super(key: key);
+  const Leaderboard({Key? key, this.scrollController}) : super(key: key);
 
+  @override
+  State<Leaderboard> createState() => _LeaderboardState();
+}
+
+class _LeaderboardState extends State<Leaderboard> {
   late List<User> users;
-  int page = 0;
-  bool reachedEnd = false;
-
-  final LeaderboardBloc lbBloc = sl<LeaderboardBloc>();
+  late int page;
+  late bool reachedEnd;
   late ScrollController _controller;
+  late LeaderboardBloc lbBloc;
+
+  @override
+  void initState() {
+    users = [];
+    page = 0;
+    reachedEnd = false;
+    lbBloc = sl<LeaderboardBloc>();
+    
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
-    _controller = scrollController ?? ScrollController();
+    _controller = widget.scrollController ?? ScrollController();
 
     _addControllerListener(_controller);
 
@@ -90,8 +104,13 @@ class Leaderboard extends StatelessWidget {
   }
 
   Widget loadedListView(BuildContext context) {
+    bool isMobile = Utils.isMobile(context);
+
     return ListView.builder(
-      controller: Utils.isMobile(context) ? null : _controller,
+      physics: isMobile
+        ? const NeverScrollableScrollPhysics()
+        : const BouncingScrollPhysics(),
+      controller: isMobile ? null : _controller,
       shrinkWrap: true,
       itemCount: users.length,
       itemBuilder: (context, index) {

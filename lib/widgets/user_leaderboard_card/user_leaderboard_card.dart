@@ -25,23 +25,23 @@ class UserLeaderboardCard extends StatelessWidget {
           UserLeaderboardCardAvatar(user.avatarURL),
           Expanded(
             child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  UserLeaderboardCardName(user.username, user.discriminator),
-                  Row(
-                    children: [
-                      UserLeaderboardCardColumn(topText: "Level", bottomText: user.level.toString()),
-                      UserLeaderboardCardColumn(
-                        topText: "Message Count",
-                        bottomText: user.messageCount.toString(),
-                        padding: const EdgeInsets.only(left: 10, right: 10),
-                      ),
-                      UserLeaderboardCardColumn(topText: "Total XP", bottomText: user.xp.toString()),
-                    ],
-                  )
-                ],
-              ),
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                UserLeaderboardCardName(user.username, user.discriminator),
+                Wrap(
+                  children: [
+                    UserLeaderboardCardColumn(topText: "Level", bottomText: user.level.toString()),
+                    UserLeaderboardCardColumn(
+                      topText: "Message Count",
+                      bottomText: user.messageCount.toString(),
+                      padding: const EdgeInsets.only(left: 10, right: 10),
+                    ),
+                    UserLeaderboardCardColumn(topText: "Total XP", bottomText: user.xp.toString()),
+                  ],
+                )
+              ],
+            ),
           ),
         ]
       )
