@@ -28,6 +28,8 @@ class Leaderboard extends StatelessWidget {
   Widget build(BuildContext context) {
     _controller = scrollController ?? ScrollController();
 
+    _addControllerListener(_controller);
+
     return Padding(
       padding: const EdgeInsets.only(top: 20, bottom: 20, right: 10, left: 10),
       child: Container(
@@ -50,7 +52,10 @@ class Leaderboard extends StatelessWidget {
 
   BlocProvider<LeaderboardBloc> _buildLeaderboard() {
     return BlocProvider(
-      create: (_) => lbBloc..add(GetLeaderboardUsers()),
+      create: (_) { 
+        page = page + 1;
+        return lbBloc..add(GetLeaderboardUsers());
+      },
       child: BlocBuilder<LeaderboardBloc, LeaderboardState>(
         builder: (context, state) {
           if (state is LeaderboardLoading) {
@@ -63,7 +68,7 @@ class Leaderboard extends StatelessWidget {
             return loadedListView(context);
           } else if (state is LeaderboardMoreLoaded) {
             users.addAll(state.users);
-
+            
             if (state.users.length < 100) {
               reachedEnd = true;
             }
@@ -85,17 +90,6 @@ class Leaderboard extends StatelessWidget {
   }
 
   Widget loadedListView(BuildContext context) {
-    _controller.addListener(() {
-      if (_controller.position.atEdge) {
-        bool isTop = _controller.position.pixels == 0;
-
-        if (!isTop && !reachedEnd) {
-          page = page + 1;
-          lbBloc.add(GetMoreLeaderboardUsers(page));
-        }
-      }
-    });
-
     return ListView.builder(
       controller: Utils.isMobile(context) ? null : _controller,
       shrinkWrap: true,
@@ -104,5 +98,18 @@ class Leaderboard extends StatelessWidget {
         return UserLeaderboardCard(users.elementAt(index), index + 1);
       },
     );
+  }
+
+  void _addControllerListener(ScrollController controller) {
+    controller.addListener(() {
+      if (_controller.position.atEdge) {
+        bool isTop = _controller.position.pixels == 0;
+
+        if (!isTop && !reachedEnd) {
+          lbBloc.add(GetMoreLeaderboardUsers(page));
+          page = page + 1;
+        }
+      }
+    });
   }
 }

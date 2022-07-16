@@ -9,9 +9,11 @@ import 'package:dartz/dartz.dart';
 import 'package:http/http.dart' as http;
 
 class RequestImpl implements Request {
+  String kBaseAPIUrl = kLocalBaseAPIUrl;
+
   @override
   Future<Either<User, RequestError>> getSingle(String id) async {
-    var request = await makeRequest(Uri.parse("$kBaseUrl/users/$id"));
+    var request = await makeRequest(Uri.parse("$kBaseAPIUrl/users/$id"));
 
     return request.fold(
       (response) => Left(_getSingle(response)),
@@ -21,7 +23,7 @@ class RequestImpl implements Request {
 
   @override
   Future<Either<List<User>, RequestError>> getMany(int? page) async {
-    var request = await makeRequest(Uri.parse("$kBaseUrl/users?page=$page"));
+    var request = await makeRequest(Uri.parse("$kBaseAPIUrl/users?page=$page"));
 
     return request.fold(
       (response) => Left(_getMany(response)),

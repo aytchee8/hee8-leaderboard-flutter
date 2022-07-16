@@ -41,7 +41,7 @@ class AuthImpl implements Auth {
 
   @override
   Future<Either<String, RequestError>> getAccessToken(String code) async {
-    final url = Uri.http(baseDiscordUrl, "/api/v10/oauth2/token");
+    final url = Uri.https(baseDiscordUrl, "/api/v10/oauth2/token");
 
     final result = await http.post(
       url,
