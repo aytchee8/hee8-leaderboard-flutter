@@ -37,15 +37,16 @@ class RoleRewards extends StatelessWidget {
               children: [
                 const Text("ROLE REWARDS", style: TextStyle(fontFamily: kInter, fontWeight: FontWeight.bold, letterSpacing: 2, fontSize: 15)),
                 Tooltip(
-                    preferBelow: false,
-                    verticalOffset: 30,
-                    textStyle: const TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.normal),
-                    decoration: BoxDecoration(
-                        color: Colors.grey[900],
-                        borderRadius: BorderRadius.circular(5)
-                    ),
-                    message: "Send messaqes in the server to qain XP and receive roles!",
-                    child: const Icon(Icons.help, size: 17, color: Colors.grey)
+                  triggerMode: TooltipTriggerMode.tap,
+                  preferBelow: false,
+                  verticalOffset: 30,
+                  textStyle: const TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.normal),
+                  decoration: BoxDecoration(
+                      color: Colors.grey[900],
+                      borderRadius: BorderRadius.circular(5)
+                  ),
+                  message: "Send messaqes in the server to qain XP and receive roles!",
+                  child: const Icon(Icons.help, size: 17, color: Colors.grey)
                 )
               ],
             ),
