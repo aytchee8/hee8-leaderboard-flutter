@@ -7,6 +7,7 @@ class User {
   int messageCount;
   int xp;
   int? rank;
+  String? bannerURL;
 
   User({
     required this.id,
@@ -16,7 +17,8 @@ class User {
     required this.level,
     required this.messageCount,
     required this.xp,
-    this.rank
+    this.rank,
+    this.bannerURL
   });
 
   factory User.fromJson(Map<String, dynamic> json) {
@@ -28,7 +30,8 @@ class User {
       level: json["level"],
       messageCount: json["messageCount"],
       xp: json["xp"],
-      rank: json.containsKey("rank") ? json["rank"] : null
+      rank: json.containsKey("rank") ? json["rank"] : null,
+      bannerURL: json.containsKey("bannerURL") ? json["bannerURL"] : null
     ); 
   }
 
@@ -43,6 +46,7 @@ class User {
     data["messageCount"] = messageCount;
     data["xp"] = xp;
     data["rank"] = rank;
+    data["bannerURL"] = bannerURL;
 
     return data;
   }
