@@ -76,7 +76,7 @@ class RoleRewards extends StatelessWidget {
               color: Color(0xFFfc09f5),
             ),
             const Divider(),
-            UserCard()
+            const UserCard()
           ],
         ),
       ),

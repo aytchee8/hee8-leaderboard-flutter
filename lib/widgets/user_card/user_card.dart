@@ -8,16 +8,32 @@ import 'package:hee8_lb/bloc/user/bloc/user_bloc.dart';
 import 'package:hee8_lb/injection_container.dart';
 import 'package:hee8_lb/widgets/user_card/user_rank_card.dart';
 
-class UserCard extends StatelessWidget {
-  UserCard({Key? key}) : super(key: key);
+class UserCard extends StatefulWidget {
+  const UserCard({Key? key}) : super(key: key);
 
-  final SharedPreferences prefs = sl<SharedPreferences>();
-  final userBloc = sl<UserBloc>();
+  @override
+  State<UserCard> createState() => _UserCardState();
+}
+
+class _UserCardState extends State<UserCard> with AutomaticKeepAliveClientMixin {
+  late SharedPreferences prefs;
+  late UserBloc userBloc;
+  late String? userId;
+
+  @override
+  void initState() {
+    prefs = sl<SharedPreferences>();
+    userBloc = sl<UserBloc>();
+    userId = prefs.getString("userId");
+    
+    super.initState();
+  }
+
+  @override
+  bool get wantKeepAlive => true;
 
   @override
   Widget build(BuildContext context) {
-    String? userId = prefs.getString("userId");
-
     if (userId != null) {
       userBloc.add(GetUserEvent(userId));
     }
