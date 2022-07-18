@@ -34,6 +34,8 @@ class _UserCardState extends State<UserCard> with AutomaticKeepAliveClientMixin 
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
+    
     if (userId != null) {
       userBloc.add(GetUserEvent(userId));
     }
