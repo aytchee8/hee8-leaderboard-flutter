@@ -7,12 +7,14 @@ class UserLeaderboardCardColumn extends StatelessWidget {
   final String topText;
   final String bottomText;
   final EdgeInsetsGeometry? padding;
+  final Color? textColor;
 
   const UserLeaderboardCardColumn({
     Key? key,
     required this.topText,
     required this.bottomText,
-    this.padding
+    this.padding,
+    this.textColor
   }) : super(key: key);
 
   @override
@@ -25,9 +27,9 @@ class UserLeaderboardCardColumn extends StatelessWidget {
         children: [
           AutoSizeText(
             topText,
-            style: const TextStyle(
+            style: TextStyle(
               fontFamily: kIBMPlexSans,
-              color: Color(0xff838383)
+              color: textColor ?? const Color(0xff838383)
             ),
             maxLines: 2,
             minFontSize: 5,

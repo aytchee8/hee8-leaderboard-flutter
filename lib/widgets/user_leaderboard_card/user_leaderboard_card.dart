@@ -16,7 +16,46 @@ class UserLeaderboardCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(20),
+      padding: const EdgeInsets.all(10),
+      child: user.bannerURL == null
+        ? _child(false)
+        : _buildWithBackground()
+    );
+  }
+
+  Widget _buildWithBackground() {
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        color: const Color(0xff21262B),
+        image: DecorationImage(
+          image: NetworkImage(user.bannerURL!),
+          fit: BoxFit.fitWidth,
+        ),
+        borderRadius: BorderRadius.circular(10)
+      ),
+      child: DefaultTextStyle(
+        style: const TextStyle(
+          shadows: <Shadow>[
+            Shadow(
+              offset: Offset(3.0, 3.0),
+              blurRadius: 3.0,
+              color: Colors.black,
+            ),
+            Shadow(
+              offset: Offset(3.0, 3.0),
+              blurRadius: 8.0,
+              color: Colors.black,
+            ),
+          ],
+        ),
+        child: _child(true),
+      )
+    );
+  }
+
+  Widget _child(bool shadow) {
+    return Padding(
+      padding: const EdgeInsets.all(10),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
@@ -28,16 +67,29 @@ class UserLeaderboardCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                UserLeaderboardCardName(user.username, user.discriminator),
+                UserLeaderboardCardName(
+                  user.username,
+                  user.discriminator,
+                  discriminatorColor: shadow ? const Color(0xffBBBBBB) : null
+                ),
                 Wrap(
                   children: [
-                    UserLeaderboardCardColumn(topText: "Level", bottomText: user.level.toString()),
+                    UserLeaderboardCardColumn(
+                      topText: "Level",
+                      bottomText: user.level.toString(),
+                      textColor: shadow ? const Color(0xffc6c6c6) : null
+                    ),
                     UserLeaderboardCardColumn(
                       topText: "Message Count",
                       bottomText: user.messageCount.toString(),
                       padding: const EdgeInsets.only(left: 10, right: 10),
+                      textColor: shadow ? const Color(0xffc6c6c6) : null
                     ),
-                    UserLeaderboardCardColumn(topText: "Total XP", bottomText: user.xp.toString()),
+                    UserLeaderboardCardColumn(
+                      topText: "Total XP",
+                      bottomText: user.xp.toString(),
+                      textColor: shadow ? const Color(0xffc6c6c6) : null
+                    ),
                   ],
                 )
               ],

@@ -6,8 +6,9 @@ import 'package:hee8_lb/utils/constants.dart';
 class UserLeaderboardCardName extends StatelessWidget {
   final String name;
   final String discriminator;
+  final Color? discriminatorColor;
 
-  const UserLeaderboardCardName(this.name, this.discriminator, {Key? key}) : super(key: key);
+  const UserLeaderboardCardName(this.name, this.discriminator, {Key? key, this.discriminatorColor}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +19,7 @@ class UserLeaderboardCardName extends StatelessWidget {
             text: name,
           ),
           TextSpan(
-            text: "#$discriminator", style: TextStyle(color: Colors.white.withOpacity(0.2)),
+            text: "#$discriminator", style: TextStyle(color: discriminatorColor ?? Colors.white.withOpacity(0.2)),
           )
         ]
       ),

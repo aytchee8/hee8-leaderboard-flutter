@@ -20,7 +20,13 @@ class UserLeaderboardCardRank extends StatelessWidget {
       alignment: Alignment.center,
       child: AutoSizeText(
         rank.toString(),
-        style: const TextStyle(fontFamily: kIBMPlexSans, fontSize: 19, fontWeight: FontWeight.bold),
+        style: const TextStyle(
+          fontFamily: kIBMPlexSans,
+          fontSize: 19,
+          fontWeight: FontWeight.bold,
+          shadows: [],
+          color: Colors.white
+        ),
         maxFontSize: 19,
       ),
     );
