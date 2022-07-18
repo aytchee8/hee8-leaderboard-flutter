@@ -10,7 +10,7 @@ class Utils {
   static double calculatePercentage(int xp, int level) {
     var xpForNextLevel = 5 * math.pow(level, 2) + 50 * level + 100;
 
-    double xpForPreviousLevels = 100;
+    double xpForPreviousLevels = 0;
     for (var i = 0; i < level; i++) {
       xpForPreviousLevels += ((level - i - 1) / 2) * (55 + (level - i - 2) * 10 + 55) + 100;
     }
