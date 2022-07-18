@@ -18,7 +18,7 @@ class UserRankCard extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        UserLeaderboardCardAvatar(user.avatarURL, padding: const EdgeInsets.only(right: 10)),
+        UserLeaderboardCardAvatar(user.avatarURL, user.xp, user.level, padding: const EdgeInsets.only(right: 10)),
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,

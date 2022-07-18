@@ -57,11 +57,11 @@ class UserLeaderboardCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(10),
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           UserLeaderboardCardRank(rank),
-          UserLeaderboardCardAvatar(user.avatarURL),
+          UserLeaderboardCardAvatar(user.avatarURL, user.xp, user.level),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -77,12 +77,13 @@ class UserLeaderboardCard extends StatelessWidget {
                     UserLeaderboardCardColumn(
                       topText: "Level",
                       bottomText: user.level.toString(),
+                      padding: const EdgeInsets.only(right: 10),
                       textColor: shadow ? const Color(0xffc6c6c6) : null
                     ),
                     UserLeaderboardCardColumn(
                       topText: "Message Count",
                       bottomText: user.messageCount.toString(),
-                      padding: const EdgeInsets.only(left: 10, right: 10),
+                      padding: const EdgeInsets.only(right: 10),
                       textColor: shadow ? const Color(0xffc6c6c6) : null
                     ),
                     UserLeaderboardCardColumn(
