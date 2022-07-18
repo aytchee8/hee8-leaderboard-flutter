@@ -52,11 +52,11 @@ class UserLeaderboardCardAvatar extends StatelessWidget {
 
   Widget defaultAvatar() {
     return Container(
-      height: 60,
-      width: 60,
+      height: 50,
+      width: 50,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(99),
-        color: const Color(0xffC4C4C4),
+        color: const Color.fromARGB(255, 32, 35, 37),
       ),
       alignment: Alignment.center,
     );
