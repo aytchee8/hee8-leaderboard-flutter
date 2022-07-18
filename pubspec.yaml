@@ -25,6 +25,7 @@ dependencies:
   meta: ^1.7.0
   flutter_web_auth: ^0.4.1
   shared_preferences: ^2.0.15
+  percent_indicator: ^4.2.2
 
 dev_dependencies:
   flutter_test:
