@@ -12,7 +12,7 @@ class AuthImpl implements Auth {
   static const clientId = "995605139614339144";
   static const clientSecret = "Ug0eISKHPTcKRFkp2kNrAflq2ozjQnSU";
   static const baseDiscordUrl = "discord.com";
-  static const redirectUri = "https://spec-deputy-plastic-cnn.trycloudflare.com/auth.html";
+  static const redirectUri = "https://hee8bot.xyz/auth.html";
   
   late String accessToken;
   late String code;

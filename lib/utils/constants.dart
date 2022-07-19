@@ -4,3 +4,4 @@ const kIBMPlexSans = "IBMPlexSans";
 
 const kLocalBaseAPIUrl = "http://localhost:8080";
 const kTestBaseAPIUrl = "https://queue-tapes-produce-keep.trycloudflare.com";
+const kMainBaseAPIUrl = "https://api.hee8bot.xyz";
