@@ -28,6 +28,8 @@ class UserLeaderboardCardAvatar extends StatelessWidget {
         radius: 30,
         backgroundColor: const Color.fromARGB(255, 44, 49, 54),
         percent: Utils.calculatePercentage(xp, level),
+        animation: true,
+        circularStrokeCap: CircularStrokeCap.round,
         center: ClipRRect(
           borderRadius: BorderRadius.circular(99),
           child: Image.network(
