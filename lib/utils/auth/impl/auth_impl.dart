@@ -26,6 +26,7 @@ class AuthImpl implements Auth {
       "client_id": clientId,
       "redirect_uri": redirectUri,
       "scope": "identify",
+      "prompt": "none"
     });
 
     final result = await FlutterWebAuth.authenticate(url: url.toString(), callbackUrlScheme: redirectUri);

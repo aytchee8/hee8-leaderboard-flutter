@@ -52086,7 +52086,7 @@ pd(){var s=0,r=A.O(t.BC),q,p=this,o,n,m
 var $async$pd=A.P(function(a,b){if(a===1)return A.L(b,r)
 while(true)switch(s){case 0:m=A
 s=3
-return A.Q(A.QM("https://hee8bot.xyz/auth.html",A.a8J("https","discord.com","/api/oauth2/authorize",A.aA(["response_type","code","client_id","995605139614339144","redirect_uri","https://hee8bot.xyz/auth.html","scope","identify"],t.N,t.z)).gun()),$async$pd)
+return A.Q(A.QM("https://hee8bot.xyz/auth.html",A.a8J("https","discord.com","/api/oauth2/authorize",A.aA(["response_type","code","client_id","995605139614339144","redirect_uri","https://hee8bot.xyz/auth.html","scope","identify","prompt","none"],t.N,t.z)).gun()),$async$pd)
 case 3:n=m.j9(b)
 if(n.gxb().X(0,"code")){o=n.gxb().j(0,"code")
 o.toString
