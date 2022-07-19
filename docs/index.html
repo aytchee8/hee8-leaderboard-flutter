@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+<head>
+  <base href="/">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="HEE8 Leaderboard.">
+  <meta name="theme-color" content="#c20000">
+
+  <meta property="og:type" content="website"/>
+  <meta property="og:image" itemprop="image" content="https://i.imgur.com/s7KX4Ml.gif"/>
+  <meta property="og:url" content="https://hee8bot.xyz"/>
+  <meta property="og:description" content="The leaderboard for HEE8 Levelinq in the H server.">
+  <meta property="og:title" content="HEE8 Leaderboard"/>
+
+  <!-- iOS meta tags & icons -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="HEE8 Leaderboard">
+  <link rel="apple-touch-icon" href="h.gif">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="h.gif"/>
+
+  <title>HEE8 Leaderboard</title>
+  <link rel="manifest" href="manifest.json">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap');
+
+    #loading {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    body {
+      background-color: rgb(35, 35, 35);
+    }
+  </style>
+
+  <script>
+    // The value below is injected by flutter build, do not touch.
+    var serviceWorkerVersion = '3820590029';
+  </script>
+  <!-- This script adds the flutter initialization JS code -->
+  <script src="flutter.js" defer></script>
+</head>
+<body>
+  <div id="loading">
+    <img id="imgRandom" src="" alt="" width="150" height="150">
+  </div>
+  <div id="loading">
+    <p style="color: white; font-size: 25px; font-family: 'Raleway', sans-serif;">Loadinq HEE8 Leaderboard...</p>
+  </div>
+
+  <script>
+    var date = new Date();
+    var imgRandom = document.getElementById("imgRandom")
+
+    if (date.getMonth() + 1 === 6) {
+      imgRandom.src = "h_pride.gif"
+    } else {
+      imgRandom.src = "h.gif"
+    }
+  </script>
+
+  <script>
+    window.addEventListener("flutter-first-frame",function() { 
+      const element = document.getElementById('loading');
+      element.remove(); 
+    });
+    window.addEventListener('load', function(ev) {
+      // Download main.dart.js
+      _flutter.loader.loadEntrypoint({
+        serviceWorker: {
+          serviceWorkerVersion: serviceWorkerVersion,
+        }
+      }).then(function(engineInitializer) {
+        return engineInitializer.initializeEngine();
+      }).then(function(appRunner) {
+        return appRunner.runApp();
+      });
+    });
+  </script>
+</body>
+</html>
