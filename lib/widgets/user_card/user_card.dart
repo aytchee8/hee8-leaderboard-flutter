@@ -66,9 +66,10 @@ class _UserCardState extends State<UserCard> with AutomaticKeepAliveClientMixin 
 
   Widget _loginButton() {
     return TextButton(
-      style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all(const Color.fromARGB(255, 49, 54, 61)),
-        foregroundColor: MaterialStateProperty.all(Colors.white),
+      style: TextButton.styleFrom(
+        splashFactory: NoSplash.splashFactory,
+        backgroundColor: const Color.fromARGB(255, 49, 54, 61),
+        primary: Colors.white,
       ),
       child: const Text("Log in with Discord"),
       onPressed: () async {
