@@ -58886,7 +58886,7 @@ ql(){var s=0,r=A.P(t.BC),q,p=this,o,n,m
 var $async$ql=A.Q(function(a,b){if(a===1)return A.M(b,r)
 while(true)switch(s){case 0:m=A
 s=3
-return A.L(A.TE("https://hee8bot.xyz/auth.html",A.acC("https","discord.com","/api/oauth2/authorize",A.az(["response_type","code","client_id","995605139614339144","redirect_uri","https://hee8bot.xyz/auth.html","scope","identify","prompt","none"],t.N,t.z)).gwi()),$async$ql)
+return A.L(A.TE("https://hee8bot.netlify.app/auth.html",A.acC("https","discord.com","/api/oauth2/authorize",A.az(["response_type","code","client_id","995605139614339144","redirect_uri","https://hee8bot.netlify.app/auth.html","scope","identify","prompt","none"],t.N,t.z)).gwi()),$async$ql)
 case 3:n=m.jI(b)
 if(n.gzg().W(0,"code")){o=n.gzg().j(0,"code")
 o.toString
@@ -58904,7 +58904,7 @@ while(true)switch(s){case 0:o=A.acC("https","discord.com","/api/v10/oauth2/token
 n=t.N
 m=A.az(["Content-Type","application/x-www-form-urlencoded"],n,n)
 s=3
-return A.L(A.ak9(o,A.az(["grant_type","authorization_code","client_id","995605139614339144","client_secret","Ug0eISKHPTcKRFkp2kNrAflq2ozjQnSU","redirect_uri","https://hee8bot.xyz/auth.html","code",a],n,n),m),$async$oQ)
+return A.L(A.ak9(o,A.az(["grant_type","authorization_code","client_id","995605139614339144","client_secret","Ug0eISKHPTcKRFkp2kNrAflq2ozjQnSU","redirect_uri","https://hee8bot.netlify.app/auth.html","code",a],n,n),m),$async$oQ)
 case 3:l=c
 k=B.U.lb(0,A.a9P(J.aC(A.a8K(l.e).c.a,"charset")).bZ(0,l.w),null)
 n=J.i(k)
@@ -58977,7 +58977,7 @@ oZ(a){return this.Ko(a)},
 Ko(a){var s=0,r=A.P(t.BD),q,p=this
 var $async$oZ=A.Q(function(b,c){if(b===1)return A.M(c,r)
 while(true)switch(s){case 0:s=3
-return A.L(p.o1(A.jI("https://api.hee8bot.xyz/users/"+a)),$async$oZ)
+return A.L(p.o1(A.jI("http://144.172.75.148:8080/users/"+a)),$async$oZ)
 case 3:q=c.ed(0,new A.ZL(p),new A.ZM())
 s=1
 break
@@ -58987,7 +58987,7 @@ m2(a){return this.K6(a)},
 K6(a){var s=0,r=A.P(t.bM),q,p=this
 var $async$m2=A.Q(function(b,c){if(b===1)return A.M(c,r)
 while(true)switch(s){case 0:s=3
-return A.L(p.o1(A.jI("https://api.hee8bot.xyz/users?page="+a)),$async$m2)
+return A.L(p.o1(A.jI("http://144.172.75.148:8080/users?page="+a)),$async$m2)
 case 3:q=c.ed(0,new A.ZJ(p),new A.ZK())
 s=1
 break
