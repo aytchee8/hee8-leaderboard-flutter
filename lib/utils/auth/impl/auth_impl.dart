@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:dartz/dartz.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_web_auth/flutter_web_auth.dart';
 import 'package:hee8_lb/injection_container.dart';
 import 'package:hee8_lb/utils/auth/api/auth.dart';
@@ -10,7 +11,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthImpl implements Auth {
   static const clientId = "995605139614339144";
-  static const clientSecret = "Ug0eISKHPTcKRFkp2kNrAflq2ozjQnSU";
+  var clientSecret = dotenv.env["DISCORD_SECRET"];
   static const baseDiscordUrl = "discord.com";
   static const redirectUri = "https://hee8bot.netlify.app/auth.html";
   
