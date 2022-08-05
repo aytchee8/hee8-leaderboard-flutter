@@ -16,7 +16,7 @@ jobs:
       with:
         flutter-version: '3.0.5'
         channel: 'stable'
-    - run: flutter build web --release --source-maps
+    - run: flutter build web --release --source-maps --dart-define=DISCORD_SECRET=${{ secrets.DISCORD_SECRET }}
 
     - name: Deploy to Netlify
       uses: nwtgck/actions-netlify@v1.1
