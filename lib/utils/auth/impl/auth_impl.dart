@@ -9,7 +9,7 @@ import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthImpl implements Auth {
-  static const clientId = "995605139614339144";
+  static const clientId = "1003257424511242350";
   static const clientSecret = String.fromEnvironment("DISCORD_SECRET");
   static const baseDiscordUrl = "discord.com";
   static const redirectUri = "https://hee8bot.netlify.app/auth.html";
