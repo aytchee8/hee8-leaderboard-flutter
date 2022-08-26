@@ -9,7 +9,7 @@ import 'package:dartz/dartz.dart';
 import 'package:http/http.dart' as http;
 
 class RequestImpl implements Request {
-  String kBaseAPIUrl = kIpBaseAPIUrl;
+  String kBaseAPIUrl = kMainBaseAPIUrl;
 
   @override
   Future<Either<User, RequestError>> getSingle(String id) async {
