@@ -24,12 +24,9 @@ class LeaderboardPage extends StatelessWidget {
         ),
         actions: [
           GestureDetector(  // easter egg!!!!!!!!!!!!!
-            child: SizedBox(
-              height: 20,
-              width: 20,
-            ),
+            child: Text("h", style: TextStyle(color: Color(0xffc20000)),),
             onTap: () => showDialog(context: context, builder: (context) => const AlertDialog(
-              title: Text("OMG YOU FOUND EASTERD EQQ!!!"),
+              title: Text("OMQ YOU FOUND EASTERD EQQ!!!"),
             )),
           )
         ],
