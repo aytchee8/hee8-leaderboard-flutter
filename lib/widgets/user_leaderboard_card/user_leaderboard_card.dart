@@ -53,6 +53,30 @@ class UserLeaderboardCard extends StatelessWidget {
     );
   }
 
+  Widget buildAvatar(bool shadow) {
+   if (shadow) {
+     return Container(
+       decoration: const BoxDecoration(
+         boxShadow: [
+           BoxShadow(
+             offset: Offset(3.0, 3.0),
+             blurRadius: 3.0,
+             color: Colors.black,
+           ),
+           BoxShadow(
+             offset: Offset(3.0, 3.0),
+             blurRadius: 8.0,
+             color: Colors.black,
+           ),
+         ]
+       ),
+       child: UserLeaderboardCardAvatar(user.avatarURL, user.xp, user.level),
+     );
+   } else {
+     return UserLeaderboardCardAvatar(user.avatarURL, user.xp, user.level);
+   }
+  }
+
   Widget _child(bool shadow) {
     return Padding(
       padding: const EdgeInsets.all(10),
@@ -61,7 +85,7 @@ class UserLeaderboardCard extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           UserLeaderboardCardRank(rank),
-          UserLeaderboardCardAvatar(user.avatarURL, user.xp, user.level),
+          buildAvatar(shadow),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
