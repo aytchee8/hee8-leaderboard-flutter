@@ -12,7 +12,7 @@ class RoleRewards extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(right: 10, left: 10, top: 10),
+      padding: const EdgeInsets.only(right: 10, left: 10, top: 20),
       child: Container(
         width: 300,
         padding: const EdgeInsets.all(16),
@@ -59,21 +59,25 @@ class RoleRewards extends StatelessWidget {
             const RoleBanner(
               level: 20,
               name: "H Novice",
+              details: "• Gift hcoins to friends",
               color: Color(0xFF6d59ff),
             ),
             const RoleBanner(
               level: 30,
               name: "H Pro",
+              details: "• Access to the exclusive #hvip channel",
               color: Color(0xFF7d8bff),
             ),
             const RoleBanner(
               level: 40,
               name: "H Master",
+              details: "• Set your own custom leaderboard banner",
               color: Color(0xFF7f8ed5),
             ),
             const RoleBanner(
               level: 50,
               name: "H Leqend",
+              details: "• Get a custom role with the color, name, and icon of your choice",
               color: Color(0xFFfc09f5),
             ),
             const Divider(),

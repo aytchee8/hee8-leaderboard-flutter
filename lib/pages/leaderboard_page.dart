@@ -42,6 +42,7 @@ class LeaderboardPage extends StatelessWidget {
   Widget _buildRow() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: const [
         Flexible(flex: 3, child: Leaderboard()),
         RoleRewards(),
