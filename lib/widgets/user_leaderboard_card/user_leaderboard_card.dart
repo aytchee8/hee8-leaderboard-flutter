@@ -57,14 +57,15 @@ class UserLeaderboardCard extends StatelessWidget {
    if (shadow) {
      return Container(
        decoration: const BoxDecoration(
+         shape: BoxShape.circle,
          boxShadow: [
            BoxShadow(
-             offset: Offset(3.0, 3.0),
+             offset: Offset(2.0, 2.0),
              blurRadius: 3.0,
              color: Colors.black,
            ),
            BoxShadow(
-             offset: Offset(3.0, 3.0),
+             offset: Offset(2.0, 2.0),
              blurRadius: 8.0,
              color: Colors.black,
            ),
