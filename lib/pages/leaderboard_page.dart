@@ -19,9 +19,20 @@ class LeaderboardPage extends StatelessWidget {
               padding: const EdgeInsets.only(right: 5),
               child: Image.asset("assets/h.gif", width: 40, height: 40),
             ),
-            const Text("HEE8 Leaderboard")
+            const Text("HEE8 Leaderboard"),
           ],
         ),
+        actions: [
+          GestureDetector(  // easter egg!!!!!!!!!!!!!
+            child: SizedBox(
+              height: 20,
+              width: 20,
+            ),
+            onTap: () => showDialog(context: context, builder: (context) => const AlertDialog(
+              title: Text("OMG YOU FOUND EASTERD EQQ!!!"),
+            )),
+          )
+        ],
       ),
       body: Container(
         decoration: const BoxDecoration(
