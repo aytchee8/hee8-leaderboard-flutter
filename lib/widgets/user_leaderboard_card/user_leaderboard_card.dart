@@ -29,7 +29,7 @@ class UserLeaderboardCard extends StatelessWidget {
         color: const Color(0xff21262B),
         image: DecorationImage(
           image: NetworkImage(user.bannerURL!),
-          fit: BoxFit.fitWidth,
+          fit: BoxFit.fill,
         ),
         borderRadius: BorderRadius.circular(10)
       ),
