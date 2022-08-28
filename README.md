@@ -4,9 +4,11 @@ HEE8 Leaderboard.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This is a Flutter web leaderboard for the HEE8 project.
 
-A few resources to get you started if this is your first Flutter project:
+Feel free to open a pull request if you want to contribute.
+
+A few resources to get you started if you are new to Flutter:
 
 - [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
 - [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
